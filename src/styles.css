@@ -1,0 +1,668 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * 21-ASR design system — green, premium, trustworthy.
+ * All colors are oklch semantic tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-glow: var(--primary-glow);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-mint: var(--mint);
+  --color-mint-foreground: var(--mint-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* #F7FBF8 */
+  --background: oklch(0.985 0.008 155);
+  /* #12372A */
+  --foreground: oklch(0.28 0.05 160);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.28 0.05 160);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.28 0.05 160);
+
+  /* #087F5B */
+  --primary: oklch(0.51 0.113 168);
+  --primary-foreground: oklch(0.99 0.005 155);
+  /* #20C997 */
+  --primary-glow: oklch(0.76 0.145 168);
+
+  --secondary: oklch(0.96 0.02 165);
+  --secondary-foreground: oklch(0.36 0.07 165);
+
+  --muted: oklch(0.96 0.012 160);
+  --muted-foreground: oklch(0.52 0.025 165);
+
+  /* #D8F5E5 */
+  --accent: oklch(0.945 0.045 162);
+  --accent-foreground: oklch(0.36 0.08 165);
+  --mint: oklch(0.945 0.045 162);
+  --mint-foreground: oklch(0.36 0.08 165);
+
+  --destructive: oklch(0.577 0.21 27.3);
+  --destructive-foreground: oklch(0.99 0.005 155);
+  --success: oklch(0.62 0.14 160);
+  --success-foreground: oklch(0.99 0.005 155);
+  --warning: oklch(0.78 0.15 75);
+  --warning-foreground: oklch(0.28 0.05 160);
+  --info: oklch(0.62 0.11 235);
+  --info-foreground: oklch(0.99 0.005 155);
+
+  --border: oklch(0.92 0.015 160);
+  --input: oklch(0.92 0.015 160);
+  --ring: oklch(0.51 0.113 168);
+
+  --chart-1: oklch(0.51 0.113 168);
+  --chart-2: oklch(0.76 0.145 168);
+  --chart-3: oklch(0.62 0.11 200);
+  --chart-4: oklch(0.78 0.15 75);
+  --chart-5: oklch(0.42 0.08 165);
+
+  /* dark green sidebar */
+  --sidebar: oklch(0.28 0.05 160);
+  --sidebar-foreground: oklch(0.93 0.02 160);
+  --sidebar-primary: oklch(0.76 0.145 168);
+  --sidebar-primary-foreground: oklch(0.22 0.05 160);
+  --sidebar-accent: oklch(0.34 0.055 162);
+  --sidebar-accent-foreground: oklch(0.97 0.02 160);
+  --sidebar-border: oklch(0.36 0.05 162);
+  --sidebar-ring: oklch(0.76 0.145 168);
+
+  --gradient-hero: linear-gradient(135deg, oklch(0.28 0.05 160), oklch(0.51 0.113 168) 55%, oklch(0.76 0.145 168));
+  --gradient-primary: linear-gradient(135deg, var(--primary), var(--primary-glow));
+  --gradient-soft: linear-gradient(180deg, oklch(0.985 0.008 155), oklch(0.945 0.045 162));
+
+  --shadow-soft: 0 2px 10px -4px oklch(0.28 0.05 160 / 0.12);
+  --shadow-card: 0 10px 30px -18px oklch(0.28 0.05 160 / 0.35);
+  --shadow-elevated: 0 24px 60px -28px oklch(0.28 0.05 160 / 0.45);
+  --shadow-glow: 0 0 0 1px oklch(0.76 0.145 168 / 0.25), 0 18px 40px -22px oklch(0.51 0.113 168 / 0.6);
+
+  --transition-smooth: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.19 0.03 162);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.24 0.035 162);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0.24 0.035 162);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(0.76 0.145 168);
+  --primary-foreground: oklch(0.15 0.05 160);
+  --primary-glow: oklch(0.85 0.13 168);
+  --secondary: oklch(0.3 0.04 162);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.3 0.04 162);
+  --muted-foreground: oklch(0.9 0.005 160);
+  --accent: oklch(0.34 0.05 162);
+  --accent-foreground: oklch(1 0 0);
+  --mint: oklch(0.34 0.05 162);
+  --mint-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 15%);
+  --input: oklch(1 0 0 / 20%);
+  --ring: oklch(0.76 0.145 168);
+  --sidebar: oklch(0.19 0.03 162);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-accent-foreground: oklch(1 0 0);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-feature-settings: "cv02", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .dark {
+    color: oklch(1 0 0);
+  }
+
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6,
+  .dark p,
+  .dark span,
+  .dark label,
+  .dark button,
+  .dark input,
+  .dark textarea,
+  .dark select,
+  .dark li,
+  .dark td,
+  .dark th {
+    color: inherit;
+  }
+
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility gradient-hero {
+  background-image: var(--gradient-hero);
+}
+
+@utility gradient-primary {
+  background-image: var(--gradient-primary);
+}
+
+@utility gradient-soft {
+  background-image: var(--gradient-soft);
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+
+@utility shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+@utility shadow-elevated {
+  box-shadow: var(--shadow-elevated);
+}
+
+@utility shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility text-gradient {
+  background-image: var(--gradient-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@utility animate-float {
+  animation: float-soft 6s ease-in-out infinite;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-rise {
+  animation: rise-in 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px oklch(0.76 0.145 168 / 0.8));
+  }
+  50% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 24px oklch(0.76 0.145 168 / 1));
+  }
+}
+
+@utility animate-glow-pulse {
+  animation: glow-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 oklch(0.76 0.145 168 / 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 10px oklch(0.76 0.145 168 / 0);
+  }
+}
+
+@utility animate-badge-pulse {
+  animation: badge-pulse 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@utility animate-shimmer {
+  background: linear-gradient(90deg, oklch(0.76 0.145 168) 0%, oklch(0.99 0.005 155) 50%, oklch(0.76 0.145 168) 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 4s infinite linear;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@utility animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+@utility animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 35s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+
+/* ==========================================================================
+ * MOTION SYSTEM — 21-ASR
+ * Barcha animatsiyalar faqat `opacity` va `transform` orqali ishlaydi
+ * (compositor-friendly). `prefers-reduced-motion` to'liq qo'llab-quvvatlanadi.
+ * ========================================================================== */
+
+:root {
+  /* Easing tokenlari — komponentlarda qo'lda cubic-bezier yozilmasin */
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out-soft: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 620ms;
+  --dur-reveal: 760ms;
+}
+
+/* --------------------------------------------------------------------------
+ * 1. SCROLL REVEAL
+ * Server'da `data-reveal` bilan chiqadi, IntersectionObserver `in` qo'shadi.
+ * -------------------------------------------------------------------------- */
+
+[data-reveal] {
+  opacity: 0;
+  transform: translate3d(var(--reveal-x, 0), var(--reveal-y, 22px), 0)
+    scale(var(--reveal-scale, 1));
+  transition:
+    opacity var(--dur-reveal) var(--ease-out-expo),
+    transform var(--dur-reveal) var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal="in"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* Variantlar */
+[data-reveal-variant="up"] {
+  --reveal-y: 28px;
+}
+[data-reveal-variant="down"] {
+  --reveal-y: -24px;
+}
+[data-reveal-variant="left"] {
+  --reveal-x: 36px;
+  --reveal-y: 0px;
+}
+[data-reveal-variant="right"] {
+  --reveal-x: -36px;
+  --reveal-y: 0px;
+}
+[data-reveal-variant="scale"] {
+  --reveal-y: 12px;
+  --reveal-scale: 0.94;
+}
+[data-reveal-variant="fade"] {
+  --reveal-y: 0px;
+}
+[data-reveal-variant="blur"] {
+  --reveal-y: 16px;
+  filter: blur(10px);
+  transition:
+    opacity var(--dur-reveal) var(--ease-out-expo),
+    transform var(--dur-reveal) var(--ease-out-expo),
+    filter var(--dur-reveal) var(--ease-out-expo);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal-variant="blur"][data-reveal="in"] {
+  filter: blur(0);
+}
+
+/* JS ishlamasa kontent hech qachon yashirin qolmasligi kerak */
+.no-js [data-reveal] {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* --------------------------------------------------------------------------
+ * 2. SAHIFA O'TISHI
+ * -------------------------------------------------------------------------- */
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 10px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-page-enter {
+  animation: page-enter 460ms var(--ease-out-expo) both;
+}
+
+/* --------------------------------------------------------------------------
+ * 3. SPOTLIGHT KARTA — kursor ortidan yuruvchi yorug'lik
+ * -------------------------------------------------------------------------- */
+
+.spotlight {
+  position: relative;
+  isolation: isolate;
+}
+
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--dur-base) var(--ease-out-quart);
+  background: radial-gradient(
+    380px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    oklch(0.76 0.145 168 / 0.14),
+    transparent 62%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+.spotlight > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+ * 4. SHINE — tugma ustidan o'tuvchi yorug'lik chizig'i
+ * -------------------------------------------------------------------------- */
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(1 0 0 / 0.32),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.shine:hover::after {
+  animation: shine-sweep 780ms var(--ease-out-quart);
+}
+
+@keyframes shine-sweep {
+  to {
+    transform: translateX(120%) skewX(-18deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+ * 5. AURORA — hero orqasidagi jonli gradient fon
+ * -------------------------------------------------------------------------- */
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  33% {
+    transform: translate3d(6%, -5%, 0) scale(1.12);
+  }
+  66% {
+    transform: translate3d(-5%, 4%, 0) scale(0.95);
+  }
+}
+
+@utility animate-aurora {
+  animation: aurora-drift 18s var(--ease-in-out-soft) infinite;
+}
+
+@utility animate-aurora-slow {
+  animation: aurora-drift 26s var(--ease-in-out-soft) infinite reverse;
+}
+
+/* --------------------------------------------------------------------------
+ * 6. QO'SHIMCHA MIKRO-ANIMATSIYALAR
+ * -------------------------------------------------------------------------- */
+
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@utility animate-gradient-text {
+  background-image: linear-gradient(
+    100deg,
+    var(--primary),
+    var(--primary-glow) 40%,
+    var(--info) 60%,
+    var(--primary)
+  );
+  background-size: 220% 220%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-pan 7s var(--ease-in-out-soft) infinite;
+}
+
+@keyframes ring-expand {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@utility animate-ring-expand {
+  animation: ring-expand 2.6s var(--ease-out-quart) infinite;
+}
+
+@keyframes tick-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 60%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@utility animate-tick-up {
+  animation: tick-up 520ms var(--ease-out-expo) both;
+}
+
+/* Skeleton yuklanish holati */
+@keyframes skeleton-sweep {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@utility skeleton {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--muted);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(1 0 0 / 0.28),
+    transparent
+  );
+  animation: skeleton-sweep 1.5s infinite;
+}
+
+/* --------------------------------------------------------------------------
+ * 7. FOKUS HOLATI — klaviatura bilan yuruvchilar uchun aniq ko'rinadigan halqa
+ * -------------------------------------------------------------------------- */
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* --------------------------------------------------------------------------
+ * 8. REDUCED MOTION — foydalanuvchi animatsiyani o'chirgan bo'lsa,
+ *    kontent darhol va to'liq ko'rinadi.
+ * -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .spotlight::before,
+  .shine::after {
+    display: none;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
