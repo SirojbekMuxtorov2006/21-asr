@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
+import { OFFICES_DATA } from "@/data/officesData";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -194,6 +195,80 @@ function ContactPage() {
           </Button>
         </form>
       </div>
+
+      {/* ======================= OFISLAR VA FILIALLAR ======================= */}
+      <section className="mx-auto max-w-7xl px-4 pb-20 pt-6 sm:px-6 lg:px-8">
+        <div className="mb-10 text-center">
+          <span className="mb-3 inline-block rounded-full bg-accent px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">
+            Filiallarimiz
+          </span>
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+            Bizning Ofislar va Filiallar
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
+            O'zingizga eng qulay bo'lgan 21-ASR Raqamli Xizmatlar Markazi filialiga tashrif buyuring.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {OFFICES_DATA.map((office) => (
+            <div
+              key={office.id}
+              className={`relative flex flex-col justify-between overflow-hidden rounded-3xl border p-7 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated ${
+                office.isMain
+                  ? "border-primary/50 bg-gradient-to-b from-primary/5 via-card to-card ring-1 ring-primary/20"
+                  : "border-border bg-card"
+              }`}
+            >
+              <div>
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="flex size-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <MapPin className="size-6" />
+                  </span>
+                  {office.isMain ? (
+                    <span className="rounded-full bg-primary/15 px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary">
+                      Bosh Ofis
+                    </span>
+                  ) : (
+                    <span className="rounded-full bg-muted px-3 py-1 text-xs font-medium text-muted-foreground">
+                      Filial
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="text-xl font-bold">{office.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {office.landmark}
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-border/60 flex flex-col gap-2.5">
+                <a
+                  href={office.mapUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-primary text-sm font-semibold text-primary-foreground shadow-sm transition-all hover:opacity-95"
+                >
+                  <MapPin className="size-4" />
+                  Google Maps'da ko'rish
+                </a>
+
+                {office.telegramUrl && (
+                  <a
+                    href={office.telegramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-border bg-background text-xs font-semibold text-foreground transition-all hover:bg-accent hover:text-primary"
+                  >
+                    <Send className="size-3.5 text-sky-500" />
+                    Telegram kanal: @asrxizmatlari
+                  </a>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
     </PublicLayout>
   );
 }

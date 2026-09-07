@@ -95,28 +95,47 @@ export function SiteFooter() {
 
         <div>
           <h3 className="mb-4 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-            {t("nav.contact")}
+            Ofislar va Aloqa
           </h3>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li className="flex gap-2.5">
               <Phone className="mt-0.5 size-4 shrink-0 text-primary" />
-              <a href="tel:+998(55)701-21-00" className="hover:text-primary">
-                +998(55)701-21-00
+              <a href="tel:+998557012100" className="hover:text-primary font-medium">
+                +998 (55) 701-21-00 (Qisqa: 1832)
               </a>
             </li>
             <li className="flex gap-2.5">
-              <Mail className="mt-0.5 size-4 shrink-0 text-primary" />
-              <a href="mailto:info@21asr.uz" className="hover:text-primary">
-                info@21asr.uz
+              <Send className="mt-0.5 size-4 shrink-0 text-sky-500" />
+              <a href="https://t.me/asrxizmatlari" target="_blank" rel="noreferrer" className="hover:text-primary font-medium">
+                Telegram: @asrxizmatlari
               </a>
             </li>
             <li className="flex gap-2.5">
               <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
-               Urgut tumani,Davlat Xizmatlar Markazi (Yagona Darcha) ro'parasida
+              <div>
+                <span className="font-semibold text-foreground">Bosh ofis (Urgut):</span>{" "}
+                <a href="https://maps.google.com/maps?q=39.662412,66.939374&ll=39.662412,66.939374&z=16" target="_blank" rel="noreferrer" className="hover:underline hover:text-primary">
+                  DXM ro'parasida
+                </a>
+              </div>
             </li>
             <li className="flex gap-2.5">
-              <Clock className="mt-0.5 size-4 shrink-0 text-primary" />
-              Dush-Shan: 09:00 - 18:00
+              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
+              <div>
+                <span className="font-semibold text-foreground">Samarqand ofis:</span>{" "}
+                <a href="https://maps.app.goo.gl/GqA1crWiuazoQC6fA" target="_blank" rel="noreferrer" className="hover:underline hover:text-primary">
+                  DXM pastki qismida
+                </a>
+              </div>
+            </li>
+            <li className="flex gap-2.5">
+              <MapPin className="mt-0.5 size-4 shrink-0 text-primary" />
+              <div>
+                <span className="font-semibold text-foreground">Pastdarg'om ofis:</span>{" "}
+                <a href="https://www.google.com/maps/place/39%C2%B042'40.4%22N+66%C2%B040'09.7%22E/@39.711227,66.669349,1740m" target="_blank" rel="noreferrer" className="hover:underline hover:text-primary">
+                  DXM ro'parasida
+                </a>
+              </div>
             </li>
           </ul>
         </div>
