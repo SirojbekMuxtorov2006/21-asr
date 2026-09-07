@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Phone, MapPin, Send, Loader2, Instagram } from "lucide-react";
+import { Phone, MapPin, Send, Loader2, Instagram, Youtube, Facebook } from "lucide-react";
 import { PublicLayout, PageHero } from "@/components/site/PublicLayout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -90,21 +90,28 @@ function ContactPage() {
               href: "tel:+998557012100",
             },
             {
+              icon: Send,
+              title: "Telegram Kanal & Aloqa",
+              lines: ["@asrxizmatlari (Rasmiy kanal)", "@ASRBUX_21 (Mutaxassis)"],
+              href: "https://t.me/asrxizmatlari",
+            },
+            {
               icon: Instagram,
               title: "Instagram",
-              lines: ["@21ASR_MARKAZI"],
-              href: "https://instagram.com/21ASR_MARKAZI",
+              lines: ["@21asr_markazi"],
+              href: "https://www.instagram.com/21asr_markazi",
             },
             {
-              icon: Send,
-              title: "Telegram",
-              lines: ["@ASRBUX_21"],
-              href: "https://t.me/ASRBUX_21",
+              icon: Youtube,
+              title: "YouTube Channel",
+              lines: ["@21-asr"],
+              href: "https://www.youtube.com/@21-asr",
             },
             {
-              icon: MapPin,
-              title: "Manzil",
-              lines: ["Urgut tumani,", "Davlat Xizmatlar Markazi (Yagona Darcha) ro'parasida"],
+              icon: Facebook,
+              title: "Facebook Sahifa",
+              lines: ["21asr.urgut"],
+              href: "https://www.facebook.com/21asr.urgut?mibextid=ZbWKwL",
             },
           ].map((c) => (
             <div

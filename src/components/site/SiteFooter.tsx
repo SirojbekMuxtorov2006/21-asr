@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone, Send, Clock } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Clock, Instagram, Youtube, Facebook } from "lucide-react";
 import { Logo } from "./Logo";
 import { useI18n } from "@/lib/i18n";
 
@@ -13,20 +13,52 @@ export function SiteFooter() {
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
             21-ASR — tadbirkorlar va fuqarolar uchun 300+ raqamli va davlat xizmatlari bir joyda.
           </p>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2 pt-2">
             <a
-              href="buxgalter2121"
+              href="https://t.me/asrxizmatlari"
               target="_blank"
               rel="noreferrer"
-              className="flex size-10 items-center justify-center rounded-xl bg-accent text-accent-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+              className="flex size-10 items-center justify-center rounded-xl bg-accent text-sky-500 transition-all hover:bg-sky-500 hover:text-white"
               aria-label="Telegram"
+              title="Telegram: @asrxizmatlari"
             >
               <Send className="size-4" />
             </a>
             <a
-              href="tel: +998(55)701-21-00"
-              className="flex size-10 items-center justify-center rounded-xl bg-accent text-accent-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+              href="https://www.instagram.com/21asr_markazi"
+              target="_blank"
+              rel="noreferrer"
+              className="flex size-10 items-center justify-center rounded-xl bg-accent text-pink-500 transition-all hover:bg-pink-600 hover:text-white"
+              aria-label="Instagram"
+              title="Instagram: @21asr_markazi"
+            >
+              <Instagram className="size-4" />
+            </a>
+            <a
+              href="https://www.youtube.com/@21-asr"
+              target="_blank"
+              rel="noreferrer"
+              className="flex size-10 items-center justify-center rounded-xl bg-accent text-red-500 transition-all hover:bg-red-600 hover:text-white"
+              aria-label="YouTube"
+              title="YouTube: @21-asr"
+            >
+              <Youtube className="size-4" />
+            </a>
+            <a
+              href="https://www.facebook.com/21asr.urgut?mibextid=ZbWKwL"
+              target="_blank"
+              rel="noreferrer"
+              className="flex size-10 items-center justify-center rounded-xl bg-accent text-blue-600 transition-all hover:bg-blue-600 hover:text-white"
+              aria-label="Facebook"
+              title="Facebook: 21asr.urgut"
+            >
+              <Facebook className="size-4" />
+            </a>
+            <a
+              href="tel:+998557012100"
+              className="flex size-10 items-center justify-center rounded-xl bg-accent text-emerald-500 transition-all hover:bg-emerald-600 hover:text-white"
               aria-label="Telefon"
+              title="Telefon: +998 (55) 701-21-00"
             >
               <Phone className="size-4" />
             </a>
